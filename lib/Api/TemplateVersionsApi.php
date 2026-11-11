@@ -129,7 +129,7 @@ class TemplateVersionsApi
                     $v = $v ? 'True' : 'False';
                 }
                 if (is_object($v)) {
-                    $v = \GuzzleHttp\json_encode($v);
+                    $v = json_encode($v, JSON_THROW_ON_ERROR);
                 }
                 if ($v !== null) {
                     $qs .= '=' . $encoder((string) $v);
@@ -284,7 +284,7 @@ class TemplateVersionsApi
 
         // for model (json/xml)
         if (isset($template_version_writable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($template_version_writable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($template_version_writable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];
@@ -808,7 +808,7 @@ class TemplateVersionsApi
 
         // for model (json/xml)
         if (isset($template_version_updatable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($template_version_updatable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($template_version_updatable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];

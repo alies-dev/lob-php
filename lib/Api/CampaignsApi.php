@@ -129,7 +129,7 @@ class CampaignsApi
                     $v = $v ? 'True' : 'False';
                 }
                 if (is_object($v)) {
-                    $v = \GuzzleHttp\json_encode($v);
+                    $v = json_encode($v, JSON_THROW_ON_ERROR);
                 }
                 if ($v !== null) {
                     $qs .= '=' . $encoder((string) $v);
@@ -270,7 +270,7 @@ class CampaignsApi
 
         // for model (json/xml)
         if (isset($campaign_writable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($campaign_writable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($campaign_writable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];
@@ -731,7 +731,7 @@ class CampaignsApi
 
         // for model (json/xml)
         if (isset($campaign_updatable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($campaign_updatable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($campaign_updatable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];

@@ -129,7 +129,7 @@ class BillingGroupsApi
                     $v = $v ? 'True' : 'False';
                 }
                 if (is_object($v)) {
-                    $v = \GuzzleHttp\json_encode($v);
+                    $v = json_encode($v, JSON_THROW_ON_ERROR);
                 }
                 if ($v !== null) {
                     $qs .= '=' . $encoder((string) $v);
@@ -263,7 +263,7 @@ class BillingGroupsApi
 
         // for model (json/xml)
         if (isset($billing_group_editable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($billing_group_editable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($billing_group_editable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];
@@ -574,7 +574,7 @@ class BillingGroupsApi
 
         // for model (json/xml)
         if (isset($billing_group_editable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($billing_group_editable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($billing_group_editable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];

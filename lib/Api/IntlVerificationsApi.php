@@ -129,7 +129,7 @@ class IntlVerificationsApi
                     $v = $v ? 'True' : 'False';
                 }
                 if (is_object($v)) {
-                    $v = \GuzzleHttp\json_encode($v);
+                    $v = json_encode($v, JSON_THROW_ON_ERROR);
                 }
                 if ($v !== null) {
                     $qs .= '=' . $encoder((string) $v);
@@ -263,7 +263,7 @@ class IntlVerificationsApi
 
         // for model (json/xml)
         if (isset($intl_verifications_payload)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($intl_verifications_payload));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($intl_verifications_payload), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];
@@ -410,7 +410,7 @@ class IntlVerificationsApi
 
         // for model (json/xml)
         if (isset($intl_verification_writable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($intl_verification_writable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($intl_verification_writable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];

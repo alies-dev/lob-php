@@ -130,7 +130,7 @@ class PostcardsApi
                     $v = $v ? 'True' : 'False';
                 }
                 if (is_object($v)) {
-                    $v = \GuzzleHttp\json_encode($v);
+                    $v = json_encode($v, JSON_THROW_ON_ERROR);
                 }
                 if ($v !== null) {
                     $qs .= '=' . $encoder((string) $v);
@@ -275,7 +275,7 @@ class PostcardsApi
 
         // for model (json/xml)
         if (isset($postcard_editable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($postcard_editable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($postcard_editable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];

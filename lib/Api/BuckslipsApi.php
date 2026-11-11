@@ -129,7 +129,7 @@ class BuckslipsApi
                     $v = $v ? 'True' : 'False';
                 }
                 if (is_object($v)) {
-                    $v = \GuzzleHttp\json_encode($v);
+                    $v = json_encode($v, JSON_THROW_ON_ERROR);
                 }
                 if ($v !== null) {
                     $qs .= '=' . $encoder((string) $v);
@@ -280,7 +280,7 @@ class BuckslipsApi
 
         // for model (json/xml)
         if (isset($buckslip_editable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($buckslip_editable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($buckslip_editable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];
@@ -741,7 +741,7 @@ class BuckslipsApi
 
         // for model (json/xml)
         if (isset($buckslip_updatable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($buckslip_updatable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($buckslip_updatable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];

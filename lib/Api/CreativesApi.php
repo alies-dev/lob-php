@@ -129,7 +129,7 @@ class CreativesApi
                     $v = $v ? 'True' : 'False';
                 }
                 if (is_object($v)) {
-                    $v = \GuzzleHttp\json_encode($v);
+                    $v = json_encode($v, JSON_THROW_ON_ERROR);
                 }
                 if ($v !== null) {
                     $qs .= '=' . $encoder((string) $v);
@@ -270,7 +270,7 @@ class CreativesApi
 
         // for model (json/xml)
         if (isset($creative_writable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($creative_writable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($creative_writable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];
@@ -581,7 +581,7 @@ class CreativesApi
 
         // for model (json/xml)
         if (isset($creative_patch)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($creative_patch));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($creative_patch), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];

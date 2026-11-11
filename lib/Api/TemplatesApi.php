@@ -129,7 +129,7 @@ class TemplatesApi
                     $v = $v ? 'True' : 'False';
                 }
                 if (is_object($v)) {
-                    $v = \GuzzleHttp\json_encode($v);
+                    $v = json_encode($v, JSON_THROW_ON_ERROR);
                 }
                 if ($v !== null) {
                     $qs .= '=' . $encoder((string) $v);
@@ -263,7 +263,7 @@ class TemplatesApi
 
         // for model (json/xml)
         if (isset($template_writable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($template_writable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($template_writable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];
@@ -724,7 +724,7 @@ class TemplatesApi
 
         // for model (json/xml)
         if (isset($template_update)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($template_update));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($template_update), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];

@@ -129,7 +129,7 @@ class LettersApi
                     $v = $v ? 'True' : 'False';
                 }
                 if (is_object($v)) {
-                    $v = \GuzzleHttp\json_encode($v);
+                    $v = json_encode($v, JSON_THROW_ON_ERROR);
                 }
                 if ($v !== null) {
                     $qs .= '=' . $encoder((string) $v);
@@ -445,7 +445,7 @@ class LettersApi
 
         // for model (json/xml)
         if (isset($letter_editable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($letter_editable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($letter_editable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];

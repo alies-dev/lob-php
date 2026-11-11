@@ -129,7 +129,7 @@ class IdentityValidationApi
                     $v = $v ? 'True' : 'False';
                 }
                 if (is_object($v)) {
-                    $v = \GuzzleHttp\json_encode($v);
+                    $v = json_encode($v, JSON_THROW_ON_ERROR);
                 }
                 if ($v !== null) {
                     $qs .= '=' . $encoder((string) $v);
@@ -263,7 +263,7 @@ class IdentityValidationApi
 
         // for model (json/xml)
         if (isset($multi_line_address)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($multi_line_address));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($multi_line_address), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];

@@ -129,7 +129,7 @@ class UsAutocompletionsApi
                     $v = $v ? 'True' : 'False';
                 }
                 if (is_object($v)) {
-                    $v = \GuzzleHttp\json_encode($v);
+                    $v = json_encode($v, JSON_THROW_ON_ERROR);
                 }
                 if ($v !== null) {
                     $qs .= '=' . $encoder((string) $v);
@@ -263,7 +263,7 @@ class UsAutocompletionsApi
 
         // for model (json/xml)
         if (isset($us_autocompletions_writable)) {
-            $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($us_autocompletions_writable));
+            $httpBody = json_encode(ObjectSerializer::sanitizeForSerialization($us_autocompletions_writable), JSON_THROW_ON_ERROR);
         }
 
         $defaultHeaders = [];
