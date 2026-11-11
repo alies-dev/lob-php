@@ -212,7 +212,7 @@ class MultipleComponents implements ModelInterface, ArrayAccess, \JsonSerializab
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['recipient'] = $data['recipient'] ?? null;
         $this->container['primary_line'] = $data['primary_line'] ?? null;

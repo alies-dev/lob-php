@@ -448,7 +448,7 @@ class UsComponents implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['primary_number'] = $data['primary_number'] ?? null;
         $this->container['street_predirection'] = $data['street_predirection'] ?? null;

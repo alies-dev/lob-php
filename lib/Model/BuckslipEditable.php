@@ -205,7 +205,7 @@ class BuckslipEditable implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['front'] = $data['front'] ?? null;
         $this->container['back'] = $data['back'] ?? null;

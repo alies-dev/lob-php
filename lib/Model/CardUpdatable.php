@@ -187,7 +187,7 @@ class CardUpdatable implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['description'] = $data['description'] ?? null;
         $this->container['auto_reorder'] = $data['auto_reorder'] ?? null;

@@ -183,7 +183,7 @@ class PostcardDetailsWritable implements ModelInterface, ArrayAccess, \JsonSeria
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['mail_type'] = $data['mail_type'] ?? null;
         $this->container['size'] = $data['size'] ?? null;
